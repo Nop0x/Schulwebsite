@@ -42,14 +42,14 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active text-center">
-                    <img src="img/land1.png" alt="test2">
+                <div class="item active">
+                    <img src="img/land1.png" alt="test2" style="width: 100%; height: 100%">
                     <div class="carousel-caption">
                         <p>das ist ein test</p>
                     </div>
                 </div>
-                <div class="item text-center">
-                    <img src="img/land2.png" alt="test1">
+                <div class="item">
+                    <img src="img/land2.png" alt="test1" style="width: 100%; height: 100%">
                     <div class="carousel-caption">
                         <p>das ist ein test</p>
                     </div>
