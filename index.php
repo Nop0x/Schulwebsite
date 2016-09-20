@@ -39,7 +39,7 @@
     <div class="row">
         <?php
         require "php/db.php";
-        $sql = "SELECT id, header, content FROM news";
+        $sql = "SELECT id, header, content, timestamp FROM news";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -50,6 +50,8 @@
                 echo "<h3>" . $row["header"] . "</h3>";
                 echo "<p>" . $row["content"] . "</p>";
                 echo "<p><a href=\"#\" class=\"btn btn-primary\" role=\"button\">Read more</a>";
+                echo "<hr>";
+                echo "<p> News vom ". date('d.m.Y',strtotime($row["timestamp"]));
                 echo "</div></div></div>";
             }
         }
