@@ -34,7 +34,7 @@
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" 
                         aria-expanded=\"false\">Welcome " . $_COOKIE["username"] . "<span class=\"caret\"></span></a>
                         <ul class=\"dropdown-menu\">
-                        <li><a href=\"/admin\">Admin</a></li>
+                        <li><a href=\"/admin\">Mein Account</a></li>
                         <li role=\"separator\" class=\"divider\"></li>
                         <li><a href=\"/logout\">Logout</a></li>
                         </ul>
@@ -48,3 +48,40 @@
         </div>
     </div>
 </nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6">
+         <!-- Form Name -->
+            <legend>Ihre Benutzerdaten</legend>
+
+            <div class="row">
+                <?php
+                $cookie = $_COOKIE["username"];
+                require "../php/get_user.php";
+                require "../php/db.php";
+                get_users(connect(), $cookie );
+                ?>
+            </div>
+        </div>
+    <div class="col-md-6">
+        <h3>Test</h3>
+    </div>
+</div>
+
+</div>
+
+</body>
+
