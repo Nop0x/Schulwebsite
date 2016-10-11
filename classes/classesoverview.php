@@ -15,33 +15,31 @@
     <script src="../js/bootstrap.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            refreshTable();
+            loop();
         });
-
-        function refreshTable(){
-//            $('#classplan').load('get_classes.php', function(){
-//                setTimeout(refreshTable, 1000);
-//            });
-
-            if (window.XMLHttpRequest)
-            {
-                // AJAX nutzen mit IE7+, Chrome, Firefox, Safari, Opera
-                xmlhttp=new XMLHttpRequest();
-            }
-            else
-            {
-                // AJAX mit IE6, IE5
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange=function()
-            {
-                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        function loop() {
+            setTimeout(function () {
+                if (window.XMLHttpRequest)
                 {
-                    document.getElementById("classplan").innerHTML=xmlhttp.responseText;
+                    // AJAX nutzen mit IE7+, Chrome, Firefox, Safari, Opera
+                    xmlhttp=new XMLHttpRequest();
                 }
-            }
-            xmlhttp.open("GET","get_classes.php",true);
-            xmlhttp.send();
+                else
+                {
+                    // AJAX mit IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        document.getElementById("classplan").innerHTML=xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET","get_classes.php",true);
+                xmlhttp.send();
+                loop();
+            },5000)
         }
     </script>
 </head>
