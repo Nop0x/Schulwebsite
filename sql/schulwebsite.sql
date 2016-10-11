@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Sep 2016 um 09:37
+-- Erstellungszeit: 11. Okt 2016 um 13:47
 -- Server-Version: 10.1.16-MariaDB
 -- PHP-Version: 5.6.24
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `schulwebsite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `classes`
+--
+
+CREATE TABLE `classes` (
+  `id` int(11) NOT NULL,
+  `topic` varchar(255) NOT NULL,
+  `teacher` varchar(255) NOT NULL,
+  `room` varchar(255) NOT NULL,
+  `delay` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `classes`
+--
+
+INSERT INTO `classes` (`id`, `topic`, `teacher`, `room`, `delay`) VALUES
+(1, 'Biologie', 'Hr.Müller', '236', 0),
+(2, 'Chemie', 'Hr.Trautmann', '123', 5);
 
 -- --------------------------------------------------------
 
@@ -40,7 +62,7 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `header`, `abstract`, `content`, `headerimage`, `timestamp`) VALUES
-(1, 'Testnews', '', 'Das ist eine Testnews', '', '2016-09-20 08:48:05'),
+(1, 'Testnews', '', 'Das ist eine Testnews', 'https://abload.de/img/9551971749_aee7d82b6e3nbph.jpg', '2016-09-20 08:48:05'),
 (2, 'test', '', 'noch eine testsnews', '', '2016-09-20 09:51:38'),
 (3, 'bastian ist ein pimmel', '', 'ein ganz großer pimmelberger', '', '2016-09-20 10:13:13');
 
@@ -73,19 +95,26 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` int(11) NOT NULL,
+  `class` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(16, 'Marvin', 'st4lk3r1992@gmail.com', '$2a$10$s2m12lD2dfZJmbBBSYwVL.VieVbu0XFPr/vM2cbWl.3aHU6kokgdG', 1);
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `class`) VALUES
+(16, 'Marvin', 'st4lk3r1992@gmail.com', '$2a$10$s2m12lD2dfZJmbBBSYwVL.VieVbu0XFPr/vM2cbWl.3aHU6kokgdG', 1, 'Bio13');
 
 --
 -- Indizes der exportierten Tabellen
 --
+
+--
+-- Indizes für die Tabelle `classes`
+--
+ALTER TABLE `classes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indizes für die Tabelle `news`
@@ -109,6 +138,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
+--
+-- AUTO_INCREMENT für Tabelle `classes`
+--
+ALTER TABLE `classes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT für Tabelle `news`
 --
