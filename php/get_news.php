@@ -19,7 +19,9 @@ function get_news($conn)
             echo "<div class=\"caption\">";
             echo "<h3>" . $row["header"] . "</h3>";
             echo "<p>" . $row["content"] . "</p>";
-            echo "<p><a href=\"#\" class=\"btn btn-primary\" role=\"button\">Read more</a>";
+            echo "<form action=\"/news\" method=\"post\">";
+            echo "<p><button name=newsid value='". $row["id"]."' class=\"btn btn-primary\">Read more</button></p>";
+            echo "</form>";
             echo "<hr>";
             echo "<p> News vom " . date('d.m.Y', strtotime($row["timestamp"]));
             echo "</div></div></div>";
