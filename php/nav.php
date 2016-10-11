@@ -16,10 +16,16 @@ function get_nav($toggle)
             ");
             if($toggle == "news")
                 echo "<li class=\"active\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
-                <li class=\"\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>";
+                <li class=\"\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>
+                <li class=\"\"><a href=\"/roomplan\">Raumplan<span class=\"sr-only\">(current)</span></a></li>";
             if($toggle == "classes")
                 echo "<li class=\"\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
-                <li class=\"active\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>";
+                <li class=\"active\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>
+                <li class=\"\"><a href=\"/roomplan\">Raumplan<span class=\"sr-only\">(current)</span></a></li>";
+            if($toggle == "room")
+                echo "<li class=\"\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
+                <li class=\"\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>
+                <li class=\"active\"><a href=\"/roomplan/\">Raumplan<span class=\"sr-only\">(current)</span></a></li>";
             echo "</ul>";
             if (isset($_COOKIE["username"]))
                 echo "
