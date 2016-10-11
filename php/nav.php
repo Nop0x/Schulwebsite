@@ -9,7 +9,10 @@ function get_nav($toggle)
                     data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">
                 <span class=\"sr-only\">Toggle navigation</span>
             </button>
-            <a class=\"navbar-brand\" href=\"#\">Schule</a>
+            <a class=\"navbar-brand\" href=\"#\"> ");
+            include "logosvg.php";
+            get_logo();
+    echo ("</a>
         </div>
         <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
             <ul class=\"nav navbar-nav\">
