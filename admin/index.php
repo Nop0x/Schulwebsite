@@ -61,25 +61,58 @@
 
 
 <div class="container-fluid">
-
     <div class="row">
+
+
+        <!-- Linke Spalte -->
         <div class="col-md-6">
-         <!-- Form Name -->
+            <!-- Form Name -->
             <legend>Ihre Benutzerdaten</legend>
+
 
             <div class="row">
                 <?php
                 $cookie = $_COOKIE["username"];
+                echo $cookie;
                 require "../php/get_user.php";
                 require "../php/db.php";
-                get_users(connect(), $cookie );
+                get_users(connect(), $cookie);
                 ?>
             </div>
         </div>
-    <div class="col-md-6">
-        <h3>Test</h3>
+
+        <script type="text/javascript">
+            var changed = false;
+            var user = document.getElementById('benutzername');
+            user.onchange = function () {
+                var response = document.getElementById('response');
+                response.setAttribute("class", "alert alert-warning")
+                response.setAttribute("role", "role")
+                response.setAttribute("style", "visibility:block")
+                document.getElementById("response").innerHTML = "Sie haben Ihren Benutzernamen geändert! Um diese Änderung" +
+                    " aktiv zu machen, klicken Sie bitte auf Profil aktualisieren!";
+                changed = true;
+            }
+
+            var newUsername = document.getElementById("username");
+            var currentUsername = '<?php echo $cookie;?>';
+
+            if (currentUsername != newUsername) {
+
+            }
+
+
+
+        </script>
+
+
+        <!-- Rechte Spalte -->
+        <div class="col-md-6">
+            <h3>Test</h3>
+        </div>
+
+
     </div>
-</div>
 
 </div>
 
