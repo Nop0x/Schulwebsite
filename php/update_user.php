@@ -6,32 +6,18 @@
  * Time: 13:15
  */
 
-function update_user($conn, $currentid)
+function update_user($conn, $currentuser, $newusername)
 {
     header("Content-Type: text/html;charset=UTF-8");
-    $sql = "UPDATE users SET plz = '59581', ort = 'Warstein' WHERE id = 5;";
-    $result = $conn->query($sql);
+    $sql_get = "SELECT id, username, email, password FROM users WHERE username = '$newusername'";
+    $result = $conn->query($sql_get);
     if ($result->num_rows > 0) {
+        return $used = true;
+    } else {
+        $sqlupdate = "UPDATE users SET username = '$newusername' WHERE username = '$currentuser'";
+        $conn->query($sqlupdate);
         // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class=\"col-sm-6 col-md-4\">";
-            echo "<div class=\"thumbnail\">";
-            echo "<div class=\"caption\">";
-            echo "<h3>" . $row["header"] . "</h3>";
-            echo "<p>" . $row["content"] . "</p>";
-            echo "<p><a href=\"#\" class=\"btn btn-primary\" role=\"button\">Read more</a>";
-            echo "<hr>";
-            echo "<p> News vom " . date('d.m.Y', strtotime($row["timestamp"]));
-            echo "</div></div></div>";
-        }
-    }
-}
-function get_news_content($conn)
-{
-    header("Content-Type: text/html;charset=UTF-8");
-    $sql = "SELECT id, header, content, timestamp FROM news";
-}
-function get_news_image($conn)
-{
 
+        setcookie("username", $newusername);
+    }
 }
