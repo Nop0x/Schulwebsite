@@ -29,6 +29,7 @@
                     // AJAX mit IE6, IE5
                     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
                 }
+                xmlhttp.open("GET","get_classes.php",true);
                 xmlhttp.onreadystatechange=function()
                 {
                     if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -36,10 +37,9 @@
                         document.getElementById("classplan").innerHTML=xmlhttp.responseText;
                     }
                 }
-                xmlhttp.open("GET","get_classes.php",true);
                 xmlhttp.send();
                 loop();
-            },5000)
+            },1000)
         }
     </script>
 </head>

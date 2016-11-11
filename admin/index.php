@@ -10,46 +10,11 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Schule</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="http://localhost">Neuigkeiten <span class="sr-only">(current)</span></a></li>
-            </ul>
-            <?php
-            if (isset($_COOKIE["username"]))
-                echo "
-                  <ul class=\"nav navbar-nav navbar-right\">
-                      <li class=\"dropdown\">
-                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" 
-                        aria-expanded=\"false\">Welcome " . $_COOKIE["username"] . "<span class=\"caret\"></span></a>
-                        <ul class=\"dropdown-menu\">
-                        <li><a href=\"/admin\">Mein Account</a></li>
-                        <li role=\"separator\" class=\"divider\"></li>
-                        <li><a href=\"/logout\">Logout</a></li>
-                        </ul>
-                        </li>
-                  </ul>";
-            else
-                echo "<ul class=\"nav navbar-nav navbar-right\">
-                        <li><a href=\"/login\">Login</a></li>
-                      </ul>";
-            ?>
-        </div>
-    </div>
+    <?php
+    require "../php/nav.php";
+    get_nav("login");
+    ?>
 </nav>
-
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -63,7 +28,6 @@
 <div class="container-fluid">
     <div class="row">
 
-
         <!-- Linke Spalte -->
         <div class="col-md-6">
             <!-- Form Name -->
@@ -73,10 +37,25 @@
             <div class="row">
                 <?php
                 $cookie = $_COOKIE["username"];
-                echo $cookie;
                 require "../php/get_user.php";
                 require "../php/db.php";
-                get_users(connect(), $cookie);
+                ?>
+                <div class="container-fluid">
+                    <form class="form-horizontal" action="index.php" method="post">
+                <?php
+                $return = get_users(connect(), $cookie, $_POST);
+                if($return == "userupdate")
+                {
+                    ?>
+                    <script>
+                        var response = document.getElementById('response');
+                        response.setAttribute("class", "alert alert-warning")
+                        response.setAttribute("role", "role")
+                        response.setAttribute("style", "visibility:block")
+                        document.getElementById("response").innerHTML = "Benutzername geändert!";
+                    </script>
+                    <?php
+                }
                 ?>
             </div>
         </div>
@@ -96,13 +75,6 @@
 
             var newUsername = document.getElementById("username");
             var currentUsername = '<?php echo $cookie;?>';
-
-            if (currentUsername != newUsername) {
-
-            }
-
-
-
         </script>
 
 
