@@ -8,7 +8,6 @@
  */
 function get_news($conn)
 {
-    header("Content-Type: text/html;charset=UTF-8");
     $sql = "SELECT id, header, content, timestamp FROM news";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
