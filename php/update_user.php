@@ -16,8 +16,7 @@ function update_user($conn, $currentuser, $newusername)
     } else {
         $sqlupdate = "UPDATE users SET username = '$newusername' WHERE username = '$currentuser'";
         $conn->query($sqlupdate);
+        setcookie("username", $newusername, time() + (86400 * 30), '/'); // 86400 = 1 day
         // output data of each row
-
-        setcookie("username", $newusername);
     }
 }

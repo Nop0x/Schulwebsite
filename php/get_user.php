@@ -29,6 +29,7 @@ function get_users($conn, $currentuser, $post)
         }
 
     }
+    echo $currentuser;
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -72,5 +73,43 @@ function get_users($conn, $currentuser, $post)
                 return "userupdate";
             }
         }
+    }
+    else
+    {
+        echo ("<fieldset>
+    
+                    <!-- Benutzername -->
+                    <div class=\"form-group\">
+                      <label class=\"col-md-2 control-label\" for=\"textinput\">Benutzername *</label>
+                      <div class=\"col-md-4\">
+                      <input id=\"benutzername\" name=\"benutzername\" type=\"text\" value=\"Fehler\" class=\"form-control input-md\" required=\"\">
+                      </div>
+                      <div id= \"response_name\" class=\"col-md-6\">
+                        
+                      </div>
+                    </div>
+                    
+                    <!-- Email-Adresse-->
+                    <div class=\"form-group\">
+                      <label class=\"col-md-2 control-label\" for=\"textinput\">Email Adresse *</label>
+                      <div class=\"col-md-4\">
+                      <input id=\"email\" name=\"email\" type=\"text\" value=\" Fehler \" class=\"form-control input-md\" required=\"\" disabled>
+                      </div>
+                    </div>
+                    
+                    <!-- Passwort ändern -->
+                    <div class=\"form-group\">
+                      <label class=\"col-md-2 control-label\" for=\"singlebutton\"></label>
+                      <div class=\"col-md-6\">
+                      <div id=\"response\">
+                      </div>
+                        <input type='submit' value='Profil aktualisieren' 
+                        name=\"refresh_profile\" class=\"btn btn-default\" />
+                      </div>
+                    </div>
+                        
+                    </fieldset>
+                  </form>
+                  </div>");
     }
 }
