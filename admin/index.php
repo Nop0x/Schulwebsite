@@ -36,6 +36,9 @@
 
             <div class="row">
                 <?php
+                /*
+                 * Zeigt die Benutzerverwaltung an.
+                 */
                 $cookie = $_COOKIE["username"];
                 require "../php/get_user.php";
                 require "../php/db.php";
@@ -76,12 +79,6 @@
             var newUsername = document.getElementById("username");
             var currentUsername = '<?php echo $cookie;?>';
         </script>
-
-
-        <!-- Rechte Spalte -->
-        <div class="col-md-6">
-            <h3>Test</h3>
-        </div>
 
 
     </div>

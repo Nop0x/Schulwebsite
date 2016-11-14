@@ -7,6 +7,13 @@
  */
 include "../php/update_user.php";
 
+/**
+ * Funktion zum darstellen der Userverwaltung.
+ * @param $conn Die aktive Datenbank Verbindung.
+ * @param $currentuser Der momentane User.
+ * @param $post Die Post variable
+ * @return string Gibt zurück ob ein User geändert wurde.
+ */
 function get_users($conn, $currentuser, $post)
 {
     $changed = false;
@@ -29,7 +36,6 @@ function get_users($conn, $currentuser, $post)
         }
 
     }
-    echo $currentuser;
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

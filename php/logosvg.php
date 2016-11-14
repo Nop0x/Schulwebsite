@@ -4,6 +4,7 @@
  * User: Marvin
  * Date: 11.10.2016
  * Time: 14:48
+ * Generiert ein SVG Logo für die Webseite.
  */
 function get_logo()
 {

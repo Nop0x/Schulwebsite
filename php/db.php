@@ -1,4 +1,8 @@
 <?php
+/**
+ * Stellt eine Verbindung zur Datenbank her.
+ * @return mysqli
+ */
 function connect()
 {
     $servername = "localhost";

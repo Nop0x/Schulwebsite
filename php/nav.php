@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Diese Klasse erzeugt dynamisch die Navigation pro Seite.
+ * @param $toggle Gibt an welche die aktive Seite in der Navigation ist
+ */
 function get_nav($toggle)
 {
     echo ("<div class=\"container-fluid\">
