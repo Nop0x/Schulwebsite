@@ -6,6 +6,14 @@
  * Time: 13:15
  */
 
+
+/**
+ * Updated einen User in der Datenbank.
+ * @param $conn Die aktive Datenbankverbindung
+ * @param $currentuser Momentane Username
+ * @param $newusername neuer username
+ * @return bool gibt an ob der gewählte benutzername schon in benutzung ist
+ */
 function update_user($conn, $currentuser, $newusername)
 {
     header("Content-Type: text/html;charset=UTF-8");
@@ -16,8 +24,7 @@ function update_user($conn, $currentuser, $newusername)
     } else {
         $sqlupdate = "UPDATE users SET username = '$newusername' WHERE username = '$currentuser'";
         $conn->query($sqlupdate);
+        setcookie("username", $newusername, time() + (86400 * 30), '/'); // 86400 = 1 day
         // output data of each row
-
-        setcookie("username", $newusername);
     }
 }

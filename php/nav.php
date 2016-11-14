@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Diese Klasse erzeugt dynamisch die Navigation pro Seite.
+ * @param $toggle Gibt an welche die aktive Seite in der Navigation ist
+ */
 function get_nav($toggle)
 {
     echo ("<div class=\"container-fluid\">
@@ -29,10 +33,6 @@ function get_nav($toggle)
                 echo "<li class=\"\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
                 <li class=\"\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>
                 <li class=\"active\"><a href=\"/roomplan/\">Raumplan<span class=\"sr-only\">(current)</span></a></li>";
-            if($toggle == "room")
-                echo "<li class=\"\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
-                <li class=\"\"><a href=\"/classes/classesoverview.php\">Stundenplan<span class=\"sr-only\">(current)</span></a></li>
-                <li class=\"\"><a href=\"/roomplan/\">Raumplan<span class=\"sr-only\">(current)</span></a></li>";
             if($toggle == "login")
             {
                 echo "<li class=\"\"><a href=\"/\">Neuigkeiten <span class=\"sr-only\">(current)</span></a></li>
@@ -51,7 +51,7 @@ function get_nav($toggle)
                                 <ul class=\"dropdown-menu\">
                                 <li><a href=\"/admin\">Mein Account</a></li>
                                 <li role=\"separator\" class=\"divider\"></li>
-                                <li><a href=\"/logout\">Logout</a></li>
+                                <li><a href=\"/logout.php\">Logout</a></li>
                                 </ul>
                                 </li>
                           </ul>";
@@ -63,9 +63,9 @@ function get_nav($toggle)
                                 <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" 
                                 aria-expanded=\"false\">Welcome " . $_COOKIE["username"] . "<span class=\"caret\"></span></a>
                                 <ul class=\"dropdown-menu\">
-                                <li><a href=\"/admin\">Admin</a></li>
+                                <li><a href=\"/admin\">Mein Account</a></li>
                                 <li role=\"separator\" class=\"divider\"></li>
-                                <li><a href=\"/logout\">Logout</a></li>
+                                <li><a href=\"/logout.php\">Logout</a></li>
                                 </ul>
                                 </li>
                           </ul>";

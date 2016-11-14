@@ -4,12 +4,12 @@
  * User: Marvin
  * Date: 23.09.2016
  * Time: 09:04
+ * Listet news aus der Datenbank
  * @param $conn A mysqli connection to get news from
  */
 function get_news($conn)
 {
-    header("Content-Type: text/html;charset=UTF-8");
-    $sql = "SELECT id, header, content, timestamp FROM news";
+    $sql = "SELECT id, header,abstract, content, timestamp FROM news";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -18,7 +18,7 @@ function get_news($conn)
             echo "<div class=\"thumbnail\">";
             echo "<div class=\"caption\">";
             echo "<h3>" . $row["header"] . "</h3>";
-            echo "<p>" . $row["content"] . "</p>";
+            echo "<p>" . $row["abstract"] . "</p>";
             echo "<form action=\"/news\" method=\"post\">";
             echo "<p><button name=newsid value='". $row["id"]."' class=\"btn btn-primary\">Read more</button></p>";
             echo "</form>";
@@ -28,12 +28,12 @@ function get_news($conn)
         }
     }
 }
+
+/**
+ * @param $conn Die aktive Datenbankverbindung
+ */
 function get_news_content($conn)
 {
     header("Content-Type: text/html;charset=UTF-8");
     $sql = "SELECT id, header, content, timestamp FROM news";
-}
-function get_news_image($conn)
-{
-
 }

@@ -1,4 +1,7 @@
 <?php
+/*
+ * Gibt die Klassen für die Klassenübersicht aus!
+ */
 require "../php/db.php";
 $conn = connect();
 $sql = "SELECT * FROM classes";
