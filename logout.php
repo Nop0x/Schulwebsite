@@ -1,3 +1,5 @@
+
+//logout
 <?php
 if (isset($_COOKIE["username"]))
 {

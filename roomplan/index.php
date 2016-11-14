@@ -8,6 +8,7 @@
     <script src="../js/jquery-3.1.0.min.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script type="application/javascript">
+        //Raumplan zeichnen
         function draw() {
             var canvas = document.getElementById("canvas");
             if (!canvas.getContext) {
@@ -58,6 +59,7 @@
 </head>
 <body onload="draw();">
 <nav class="navbar navbar-default">
+    //Anzeige der Navigation
     <?php
     require "../php/nav.php";
     get_nav("room")

@@ -9,6 +9,8 @@
     <script src="../js/bootstrap.js"></script>
 </head>
 <body>
+
+//Login
 <nav class="navbar navbar-default">
     <?php
     require "../php/nav.php";
@@ -28,7 +30,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Linke Spalte -->
+        //Benutzerdatenspalte
         <div class="col-md-6">
             <!-- Form Name -->
             <legend>Ihre Benutzerdaten</legend>
@@ -45,11 +47,13 @@
                 ?>
                 <div class="container-fluid">
                     <form class="form-horizontal" action="index.php" method="post">
+                //Benutzernamen-Änderung
                 <?php
                 $return = get_users(connect(), $cookie, $_POST);
                 if($return == "userupdate")
                 {
                     ?>
+                    //Response bei endgültiger Nutzernamen-Änderung
                     <script>
                         var response = document.getElementById('response');
                         response.setAttribute("class", "alert alert-warning")
@@ -62,7 +66,7 @@
                 ?>
             </div>
         </div>
-
+        //Response auf Antrag der Änderung des Benutzernamens
         <script type="text/javascript">
             var changed = false;
             var user = document.getElementById('benutzername');
@@ -75,9 +79,6 @@
                     " aktiv zu machen, klicken Sie bitte auf Profil aktualisieren!";
                 changed = true;
             }
-
-            var newUsername = document.getElementById("username");
-            var currentUsername = '<?php echo $cookie;?>';
         </script>
 
 

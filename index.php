@@ -9,6 +9,7 @@
     <script src="js/bootstrap.js"></script>
 </head>
 <body>
+//Newsanzeige
 <nav class="navbar navbar-default">
     <?php
     require "php/nav.php";
